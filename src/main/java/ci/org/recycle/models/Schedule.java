@@ -9,23 +9,21 @@ import lombok.ToString;
 import java.util.UUID;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Table(name = "centre_collecte")
-public class CollectionCenter {
-
+@Table(name = "horaire")
+public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-
-    @OneToOne
-    @JoinColumn(name = "collector_id")
-    private Collector collector;
+    private String day;
+    private String starTime;
+    private String endTime;
 
     @ManyToOne
-    @JoinColumn(name = "repairer_id")
-    private Repairer repairer;
+    @JoinColumn(name = "collection_point_id")
+    private CollectionPoint collectionPoint;
 }

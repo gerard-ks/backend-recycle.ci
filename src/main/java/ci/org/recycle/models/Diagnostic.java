@@ -1,12 +1,12 @@
 package ci.org.recycle.models;
 
+import ci.org.recycle.models.enumerations.StatusDiagnostic;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -14,18 +14,20 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Table(name = "reparateur")
-public class Repairer {
+@Table(name = "diagnostique")
+public class Diagnostic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String speciality;
-    private Integer yearOfExperience;
-    private String certificate;
+    private StatusDiagnostic statusDiagnostic;
 
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "waste_id")
+    private Waste waste;
+
+    @OneToOne
+    @JoinColumn(name = "repairer_id")
+    private Repairer repairer;
 }

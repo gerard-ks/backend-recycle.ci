@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -14,18 +13,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Table(name = "reparateur")
-public class Repairer {
+@Table(name = "rapport_diagnostique")
+public class ReportDiagnostic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String speciality;
-    private Integer yearOfExperience;
-    private String certificate;
+    private float servicePrice;
+    private String urlDocument;
 
     @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "repairer_id", nullable = false)
+    private Repairer repairer;
 }

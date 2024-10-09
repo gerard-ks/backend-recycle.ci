@@ -23,6 +23,7 @@ public class User {
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
+    private String telephone;
 
     @Column(unique = true)
     private String email;
@@ -34,4 +35,8 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 }

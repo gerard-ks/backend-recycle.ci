@@ -1,6 +1,5 @@
 package ci.org.recycle.models;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -14,18 +13,18 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Table(name = "appareil_recycle")
-public class RecycledDevice {
+@Table(name = "point_collecte")
+public class CollectionPoint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "recycler_id")
-    private Recycler recycler;
+    private String description;
+    private String localisation;
+    private String isOpen;
 
-    @ManyToOne
-    @JoinColumn(name = "collection_center_id")
-    private CollectionCenter collectionCenter;
+    @OneToOne
+    @JoinColumn(name = "collector_id", nullable = false)
+    private Collector collector;
 }

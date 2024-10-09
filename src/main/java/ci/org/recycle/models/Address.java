@@ -13,12 +13,13 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-@Table(name = "suivis")
-public class RepairCollectionCenter {
+@Table(name = "adresse")
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private UUID collectionCenter;
-    private UUID repairer;
+    private String town;
+    private String district;
+    private String city;
 }
