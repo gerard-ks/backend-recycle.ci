@@ -2,10 +2,7 @@ package ci.org.recycle.models;
 
 import ci.org.recycle.models.enumerations.StatusDeposit;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -13,10 +10,11 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @ToString
+@Getter
+@Setter
 @Table(name = "depot")
-public class Deposit {
+public class Deposit extends BaseEntityAudit  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -2,20 +2,18 @@ package ci.org.recycle.models;
 
 import ci.org.recycle.models.enumerations.CitizenType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @ToString
 @Table(name = "citoyen")
-public class Citizen {
+public class Citizen extends BaseEntityAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
