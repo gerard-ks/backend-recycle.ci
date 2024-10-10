@@ -4,20 +4,18 @@ package ci.org.recycle.models;
 import ci.org.recycle.models.enumerations.ActionWaste;
 import ci.org.recycle.models.enumerations.ConditionWaste;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@Getter
+@Setter
 @ToString
 @Table(name = "dechet")
-public class Waste {
+public class Waste extends BaseEntityAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
