@@ -21,7 +21,6 @@ public class Deposit extends BaseEntityAudit  {
     private UUID id;
 
     private LocalDate depositDate;
-    private float totalWeight;
     @Enumerated(EnumType.STRING)
     private StatusDeposit statusDeposit;
 

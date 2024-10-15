@@ -19,10 +19,6 @@ public class CollectionPoint extends BaseEntityAudit {
     private UUID id;
 
     private String description;
-    private String localisation;
-    private String isOpen;
-
-    @OneToOne
-    @JoinColumn(name = "collector_id", nullable = false)
-    private Picker picker;
+    private Double latitude;
+    private Double longitude;
 }

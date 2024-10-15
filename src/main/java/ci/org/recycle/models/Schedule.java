@@ -3,6 +3,8 @@ package ci.org.recycle.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
@@ -17,11 +19,12 @@ public class Schedule extends BaseEntityAudit {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String day;
-    private String starTime;
-    private String endTime;
+    @Enumerated(EnumType.STRING)
+    private DayOfWeek day;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     @ManyToOne
-    @JoinColumn(name = "collection_point_id")
+    @JoinColumn(name = "collection_point_id", nullable = false)
     private CollectionPoint collectionPoint;
 }

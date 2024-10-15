@@ -14,4 +14,9 @@ public record LoginRequestDTO(
         String password,
         Boolean rememberMe
 ) {
+        public LoginRequestDTO {
+                if (rememberMe == null) {
+                        rememberMe = false;
+                }
+        }
 }

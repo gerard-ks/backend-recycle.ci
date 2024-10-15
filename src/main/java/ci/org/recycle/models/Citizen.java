@@ -13,7 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @ToString
 @Table(name = "citoyen")
-public class Citizen extends BaseEntityAudit {
+public class Citizen  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
