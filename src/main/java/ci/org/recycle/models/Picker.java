@@ -1,5 +1,6 @@
 package ci.org.recycle.models;
 
+import ci.org.recycle.models.enumerations.StatutAgent;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +22,14 @@ public class Picker extends BaseEntityAudit {
     @Column(unique = true)
     private String serialNumber;
 
+    @Enumerated(EnumType.STRING)
+    private StatutAgent statut = StatutAgent.DISPONIBLE;
+
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "collectionPoint_id", nullable = false)
+    private CollectionPoint collectionPoint;
 }

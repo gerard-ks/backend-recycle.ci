@@ -16,6 +16,5 @@ public class TypeWaste extends BaseEntityAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
     private String description;
 }

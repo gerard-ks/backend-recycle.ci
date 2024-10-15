@@ -19,8 +19,8 @@ public class CollectionRequest extends BaseEntityAudit {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String collectionAddress;
-    private String descriptionWaste;
+    private Double latitude;
+    private Double longitude;
     @Enumerated(EnumType.STRING)
     private StatusRequest statusRequest;
 
